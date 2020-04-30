@@ -1,0 +1,29 @@
+<?php
+$now = time();
+
+$cron = new Cron;
+
+// SPRAWDZENIE I DEAKTYWACJA SPRZEDANYCH WG USTAWIEŃ
+
+$cron->deactivateSold();
+
+// KONIEC
+
+// SPRAWDZENIE I ARCHIWIZACJA SPRZEDANYCH I NIEAKTYWNYCH WG USTAWIEŃ
+
+$cron->archiveSold();
+
+// KONIEC
+
+// WYSŁANIE EMAILA JEŚLI W PONIEDZIAŁEK LUB W CZWARTEK ZNAJDĄ SIĘ NOWA AUTA
+
+$cron->sendEmails();
+
+// KONIEC
+
+// USUNIĘCIE STATUSU NOWEGO AUTA PO 7 DNIACH OD DODANIA
+
+$cron->unsetNew();
+
+// KONIEC
+?>
