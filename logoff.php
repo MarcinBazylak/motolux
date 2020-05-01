@@ -1,5 +1,5 @@
 <?php
 session_start();
-include 'classes/login.class.php';
+include 'classes/adminLogin.class.php';
 AdminLogin::logOff();
 ?>

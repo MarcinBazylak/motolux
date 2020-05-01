@@ -3,12 +3,8 @@ session_start();
 $mtime = time();
 include 'includes/db.php';
 include 'includes/functions.php';
-include 'classes/settings.class.php';
-include 'classes/cron.class.php';
-include 'classes/login.class.php';
-include 'classes/frontPanel.class.php';
-include 'classes/cars.class.php';
-include 'classes/admin.class.php';
+
+include 'includes/autoloader.php';
 
 $settings_table = Settings::getData();
 FrontPanel::enterStats();
