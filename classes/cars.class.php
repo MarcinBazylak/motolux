@@ -142,7 +142,7 @@ class Cars {
                      $tmp_name = $photos['foto_'.$j]['tmp_name'];
                      $name = $j.'.jpg';
                      move_uploaded_file($tmp_name, 'photos/'.$id.'/'.$name);
-                     chmod('photos/'.$id.'/'.$name, 0600);
+                     chmod('photos/'.$id.'/'.$name, 0644);
                   }
                }
             }
@@ -265,19 +265,30 @@ class Cars {
          $row = $result->fetch_array(MYSQLI_ASSOC);
          $car_id = $row['id'];
 
-         $uploads_dir = 'photos/' . $car_id;
-         mkdir($uploads_dir, 0777);
+         $dir = 'photos/' . $car_id;
+         mkdir($dir);
+         // chmod($dir, 777);
 
-         for ($i = 1; $i <= 8; $i++){
+         foreach($photos as $photo) {
 
-            if ($photos['foto_'.$i]['name'] != "") {
-               $tmp_name = $photos['foto_'.$i]['tmp_name'];
-               $name = $i.'.jpg';
-               move_uploaded_file($tmp_name, $uploads_dir.'/'.$name);
-               chmod($uploads_dir.'/'.$name, 0600);
+            $name = $photo['name'];
+            $size = $photo['size'];
+            $tmpName = $photo['tmp_name'];
+            $count = count($name);
+   
+             for($i = 0; $i < $count; $i++ ) {
+               
+               if ($this->validateForm($photo, $i)) {
+   
+                  $this->saveFile($tmpName[$i], $car_id, $i+1);
+
+               }
+               
             }
-
+   
          }
+
+         // chmod($dir, 700);
 
          $alert = 'Samochód '.$data['marka'].' '.$data['model'].' został dodany do bazy danych.';
          displayAlert(1, $alert);
@@ -287,6 +298,33 @@ class Cars {
 
          $alert = 'Nie posiadasz uprawnień do wykonania tej operacji.';
          displayAlert(0, $alert);
+
+      }
+
+   }
+
+   private function saveFile($file, $carId, $id) {
+
+      $name= 'photos/' . $carId . '/' . $id .'.jpg';
+      $tmp_name = $file;
+      move_uploaded_file($tmp_name, $name);
+      chmod($name, 0644);
+
+   }
+
+   private function validateForm($photo, $i) {     
+
+      if(!empty($photo['name'][$i])) {   
+         
+         if($photo['size'][$i] < 4194304) {
+
+            if($photo['type'][$i] == 'image/jpeg') {
+
+               return true;
+
+            }
+
+         }
 
       }
 
@@ -305,7 +343,8 @@ class Cars {
             if (file_exists($file)) {
                unlink($file);
             }
-         }   
+         }
+         chmod('photos/'.$id, 0777);
          rmdir('photos/'.$id);
       
          $alert = 'Samochód został usunięty.';

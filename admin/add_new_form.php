@@ -91,25 +91,20 @@ echo '
 	<div class="box add-new-photos">
 		<div class="show-car-header" style="margin-bottom: 20px;">Zdjęcia</div>
 		<div class="box-inside" style="width: fit-content; margin: auto;">
-			Zdjęcie nr 1. <input type="file" name="foto_1" class="input-panel"><br>
-			Zdjęcie nr 2. <input type="file" name="foto_2" class="input-panel"><br>
-			Zdjęcie nr 3. <input type="file" name="foto_3" class="input-panel"><br>
-			Zdjęcie nr 4. <input type="file" name="foto_4" class="input-panel"><br>
-			Zdjęcie nr 5. <input type="file" name="foto_5" class="input-panel"><br>
-			Zdjęcie nr 6. <input type="file" name="foto_6" class="input-panel"><br>
-			Zdjęcie nr 7. <input type="file" name="foto_7" class="input-panel"><br>
-			Zdjęcie nr 8. <input type="file" name="foto_8" class="input-panel"><br>
+         Wybierz zdjęcia z dysku<br>
+         <input id="image" type="file" name="photo[]" class="input-panel" accept="image/jpeg" multiple><br>
+         <span style="display:block; font-size: 12px; margin-bottom: 10px;">Max 8 zdjęć w formacie .jpg. Maksymalny rozmiar zdjęcia to 4MB</span><br>
 		</div>
 	</div>
 
 	<div class="box add-new-price">
 		<div class="show-car-header" style="margin-bottom: 20px;">Pozostałe informacje</div>
 		<div class="box-inside">
-			<input placeholder="Cena (PLN)" type="text" name="cena" class="input-panel" maxlength="10" autocomplete="off"><br>
-			<textarea class="opis_mainpage2" name="opis" placeholder="Dodatkowy opis"></textarea><br>
-			<button type="reset" class="email_b" />Wyczyść</button> <button type="submit" class="email_b">Dodaj</button>
+         <textarea class="opis_mainpage2" name="opis" placeholder="Dodatkowy opis"></textarea><br>
+         <input placeholder="Cena (PLN)" type="text" name="cena" class="input-panel" maxlength="10" autocomplete="off"><br>
 		</div>
-	</div>
+   </div>
+   <button type="submit" class="email_b">Dodaj samochód</button>
 </div>
 </form>';
 }

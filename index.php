@@ -49,6 +49,15 @@ echo '
     </footer>
 </div>
 <script>lightbox.option({\'showImageNumberLabel\': false,})</script>
+
+<script>
+$("#image").on("change", function() {
+ if ($("#image")[0].files.length > 8) {
+     alert("Maksymalnie 8 zdjęć");
+ }
+});
+</script>
+
 </body>
 </html>
 ';

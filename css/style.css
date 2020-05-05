@@ -218,7 +218,7 @@ button.email_b {
    transition-duration: 0.5s;
    box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.2);
    height: 40px;
-   min-width: fit-content;
+   width: fit-content;
    overflow: hidden;
    position: relative;
    padding: 0 15px;
@@ -523,7 +523,7 @@ select.input-panel {
     padding: 10px;
     color: #666;
     border: 1px solid #ddd;
-    width: 90%;
+    width: 100%;
     height: 200px;
     margin-top: 10px;
     box-sizing: border-box;
@@ -539,8 +539,8 @@ select.input-panel {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
     "add-new-basic-data add-new-tech"
-    "add-new-comfort add-new-photos"
-    "add-new-price add-new-price"
+    "add-new-comfort add-new-price"
+    "add-new-photos add-new-photos"
 ;
 }
 

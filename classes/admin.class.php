@@ -215,7 +215,7 @@ class Admin {
          $result = $mysqli->query("SELECT * FROM login");
          $row = $result->fetch_array(MYSQLI_ASSOC);
          
-         if ($row['pass'] == $data['old_pass']) {
+         if ($row['pass'] == md5($data['old_pass'])) {
 
             if ($data['new_pass'] == $data['new_pass_2']) {
 

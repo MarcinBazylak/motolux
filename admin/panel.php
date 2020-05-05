@@ -26,7 +26,7 @@ if (AdminLogin::isAdminLoggedIn()) {
     
     if ($_POST['pass_chng'] == 1) {
 
-      $admin->changePassword($$_POST);
+      $admin->changePassword($_POST);
 
     }
     
