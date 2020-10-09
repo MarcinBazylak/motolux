@@ -88,7 +88,7 @@ echo '
                 <input type="hidden" name="automatics" value="1">
                 Deaktywuj sprzedane po: <input type="number" min="1" value="'.$settings['deactivate'].'" name="deactivation" class="input-panel" style="width: 60px;" maxlength="3" required> dniach<br>
                 <span style="font-size: 8pt; color: #999999">Wskaż, po ilu dniach, maj± zostać zdeaktywowane samochody, które zostały sprzedane.</span><br>
-                Archiwizuj nieaktywne po: <input type="number" min="1" value="'.$settings['archive'].'" name="archive" class="input-panel" style="width: 60px;" maxlength="3" required> dniach<br>
+                Archiwizuj nieaktywne po: <input type="number" min="1" value="'.$settings['archive']. '" name="archive" class="input-panel" style="width: 60px;" maxlength="3" required> dniach<br>
                 <span style="font-size: 8pt; color: #999999">Wskaż, po ilu dniach, maj± zostać przeniesione do archiwum samochody, które s± nieaktywne.</span><br>
                 <button type="submit" class="email_b">Zapisz</button><br>
             </form>
@@ -100,8 +100,11 @@ echo '
         <div class="box-inside">
             <form action="index.php?action=admin&view=panel" method="post">
                 <input type="hidden" name="ok" value="1">
-                <input placeholder="Adres strony bez http://" type="text" value="'.$settings['strona'].'" name="strona" class="input-panel" autocomplete="off" placeholder="bez http://"><br>
-                <input placeholder="Nazwa firmy" type="text" value="'.$settings['firma'].'" name="firma" class="input-panel" autocomplete="off" placeholder="Podaj nazwę firmy"><br>
+                <input placeholder="Nagłówek strony" type="text" value="' . $settings['header'] . '" name="header" class="input-panel" autocomplete="off"><br>
+                <input placeholder="Podtytuł" type="text" value="' . $settings['subtitle'] . '" name="subtitle" class="input-panel" autocomplete="off"><br>
+
+                <input placeholder="Adres strony bez http://" type="text" value="' . $settings['strona'] . '" name="strona" class="input-panel" autocomplete="off"><br>
+                <input placeholder="Nazwa firmy" type="text" value="'.$settings['firma'].'" name="firma" class="input-panel" autocomplete="off"><br>
                 <input type="text" value="'.$settings['adres'].'" name="adres" class="input-panel" autocomplete="off" placeholder="Ulica i numer"><br>
                 <input type="text" value="'.$settings['kod'].'" name="kod" class="input-panel" autocomplete="off" placeholder="Kod pocztowy"><br>
                 <input type="text" value="'.$settings['miasto'].'" name="miasto" class="input-panel" autocomplete="off" placeholder="Miejscowość"><br>

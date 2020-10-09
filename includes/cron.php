@@ -1,5 +1,4 @@
 <?php
-$now = time();
 
 $cron = new Cron;
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'includes/db.php';
-include 'classes/adminLogin.class.php';
+include 'classes/AdminLogin.class.php';
 
 if ($_POST['submit']) {
 

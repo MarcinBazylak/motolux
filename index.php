@@ -16,7 +16,11 @@ echo '
 <body>
   <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
   <div id="container">
-    <header>';
+  <header><div class="titles"><span style="font-weight: 800; color: white; font-size:3.2em; line-height: 1; text-shadow: 0 0 10px black">'
+   . $settings_table['header'] .
+'</span><span style="font-weight: 800; color: white; font-size:1.5em; line-height: 1; text-shadow: 0 0 10px black; letter-spacing: 2px">'
+ . $settings_table['subtitle'] . 
+ '</span></div>';
 include "includes/menu.php";
 echo '
     </header>

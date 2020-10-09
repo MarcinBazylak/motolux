@@ -2,11 +2,6 @@
 
 class Admin {
 
-   private $subject;
-   private $content;
-   private $subList;
-   private $domain;
-
    public static function sendEmailToSubscribers($data) {
 
       global $mysqli;
@@ -18,7 +13,7 @@ class Admin {
          if (!empty($subject) && !empty($content)) {
             $date = date("d.m.Y G:i:s");
             $mtime = time();
-            $domain = GetSettings::getData();
+            $domain = Settings::getData();
             $domain = $domain['strona'];
             $mysqli->query("INSERT INTO subscriptions VALUES ('', '$subject', '$content', '$mtime', '$date')");
             
@@ -46,7 +41,7 @@ class Admin {
 
    }
 
-   private function getSubscribersList() {
+   private static function getSubscribersList() {
 
       global $mysqli;
       $result = $mysqli->query("SELECT email FROM email");
@@ -254,7 +249,7 @@ class Admin {
 
       if(AdminLogin::isAdminLoggedIn()) {
 
-         $mysqli->query("UPDATE settings SET firma='$data[firma]', strona='$data[strona]', email='$data[email]', adres='$data[adres]', kod='$data[kod]', miasto='$data[miasto]', telefon='$data[telefon]', godziny='$data[godziny]', mapa='$data[mapa]' WHERE id='1'");
+         $mysqli->query("UPDATE settings SET firma='$data[firma]', header='$data[header]', subtitle='$data[subtitle]', strona='$data[strona]', email='$data[email]', adres='$data[adres]', kod='$data[kod]', miasto='$data[miasto]', telefon='$data[telefon]', godziny='$data[godziny]', mapa='$data[mapa]' WHERE id='1'");
         
          $alert = 'Ustawienia zostały pomyślnie zmienone.';
          displayAlert(1, $alert);

@@ -49,11 +49,10 @@
          $host = gethostbyaddr($ip);
          $tme = date("H:i:s");
          $date = date("d.m.Y");
+         $mtime = time();
 
          $mysqli->query("INSERT INTO stats VALUES ('', '$date', '$tme', '$mtime', '$site', '$ip', '$host', '$referer')");
 
       }
 
    }
-
-?>
